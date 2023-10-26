@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+           background-image: url(https://img.pikbest.com/backgrounds/20220119/mathematics-training-green-minimalist-education-background_6235206.jpg!sw800);
+           background-repeat: no-repeat;
+           background-size: cover;
+           }
+           #area{
+            width: 70%;
+           }
+           .btn{
+            background-color:rgb(175, 165, 165);
+            border-radius: 50%;
+            height: 50%;
+           }
+           .frm{
+            position: relative;
+            position: absolute;
+            top: 100px;
+            left: 600px;
+           }
+          
+    </style>
+</head>
+<body>
+    <h1><center>CALCULATING FORMULAS</center></h1>
+    <form class="frm" > 
+       <center>    Enter No: <input type="text" id="area" name="name"/> <br>
+        <br>
+        <input class="btn" type="button" value="area of square" onclick="print()"/>
+    </center>
+    </form>
+    <script>
+        function print(){
+        
+            var name=(document.getElementById("area").value);
+
+            alert(name*name);
+        }
+    </script>
+</body>
+</html>

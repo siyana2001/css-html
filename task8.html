@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="passwordForm">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <br>
+
+        <label for="rePassword">Re-enter Password:</label>
+        <input type="password" id="rePassword" name="rePassword" required>
+        <br>
+        <br>
+
+        <input type="submit" value="Submit">
+      </form>
+      <script>
+      document.getElementById("passwordForm").addEventListener("submit", function(event) {
+       var password = document.getElementById("password").value;
+       var rePassword = document.getElementById("rePassword").value;
+  
+       if (password !== rePassword) {
+       
+       alert("password must be same");
+       event.preventDefault(); 
+  }
+});
+      </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+
+    <body>
+        <input type="number" id="intInput" placeholder="Enter the number">
+        <button onclick="getbtn()">submit</button>
+        <select id="selectbox" onchange="select1()"></select>
+        <select id="selectbox2"></select>
+        
+        <script>
+            function getbtn() {
+                var input = document.getElementById("intInput").value;
+                var output = '<option>select option</option>';
+                
+                for (var i = 0; i <= input; i++) {
+                    output += '<option value="' + i + '">' + i + '</option>';
+                }
+                
+                document.getElementById("selectbox").innerHTML = output;
+                document.getElementById("selectbox2").innerHTML = '<option>select option</option>';
+            }
+            
+            function select1() {
+                var input2 = document.getElementById("selectbox").value;
+                var output1 = '<option>select option</option>';
+                
+                for (var i = 0; i <= input2; i++) {
+                    output1 += '<option value="' + i + '">' + i + '</option>';
+                }
+                
+                document.getElementById("selectbox2").innerHTML = output1;
+            }
+        </script>
+    </body>
+
+    
+
+
+
+</body>
+</html>

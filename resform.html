@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body, tr, td {
+        
+            color: white;
+            font-size: medium;
+          
+        }
+        body{
+            background-image: url(https://wallpapercave.com/wp/wp6407012.jpg);
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="mt-5">MOVIE TICKET BOOKING:</h1>
+    <form id="Form">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="fname">First name:</label><br>
+                <input type="text" id="name"><br><br>
+                <label for="email">Email:</label><br>
+                <input type="text" id="email"><br><br>
+                <label for="age">Age:</label><br>
+                <input type="number" id="age"><br><br>
+                <label for="movie">Movie name:</label><br>
+                <input type="text" id="movie"><br><br>
+                <label for="seat">Seat No:</label><br>
+                <input type="number" id="seat"><br><br>
+                <button type="button" id="sve" class="btn btn-primary" onclick="saveData()">Save</button>
+            </div>
+        </div>
+    </form>
+
+    <h2 class="mt-4">Booking details:</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Movie name</th>
+            <th>Seat No</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody id="userData">
+        </tbody>
+    </table>
+</div>
+<script>
+    function saveData() {
+        const fname = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const age = document.getElementById("age").value;
+        const movie = document.getElementById("movie").value;
+        const seat = document.getElementById("seat").value;
+
+        const userData = {
+            fname,
+            email,
+            age,
+            movie,
+            seat
+        };
+
+        const existData = JSON.parse(localStorage.getItem("userData")) || [];
+        existData.push(userData);
+        localStorage.setItem("userData", JSON.stringify(existData));
+        document.getElementById("Form").reset();
+        displayUserData();
+    }
+
+    function displayUserData() {
+        const userData = JSON.parse(localStorage.getItem("userData")) || [];
+        const tableBody = document.getElementById("userData");
+        tableBody.innerHTML = '';
+
+        userData.forEach((user, index) => {
+            const row = tableBody.insertRow();
+            const cellName = row.insertCell(0);
+            const cellEmail = row.insertCell(1);
+            const cellAge = row.insertCell(2);
+            const cellMovie = row.insertCell(3);
+            const cellSeat = row.insertCell(4);
+            const cellActions = row.insertCell(5);
+
+            cellName.innerHTML = user.fname;
+            cellEmail.innerHTML = user.email;
+            cellAge.innerHTML = user.age;
+            cellMovie.innerHTML = user.movie;
+            cellSeat.innerHTML = user.seat;
+
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.onclick = () => editUser(index);
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.onclick = () => deleteUser(index);
+
+            cellActions.appendChild(editButton);
+            cellActions.appendChild(deleteButton);
+        });
+    }
+
+    function editUser(index) {
+        const userData = JSON.parse(localStorage.getItem("userData")) || [];
+        const editedUser = userData[index];
+
+        document.getElementById("name").value = editedUser.fname;
+        document.getElementById("email").value = editedUser.email;
+        document.getElementById("age").value = editedUser.age;
+        document.getElementById("movie").value = editedUser.movie;
+        document.getElementById("seat").value = editedUser.seat;
+
+        userData.splice(index, 1);
+
+        localStorage.setItem("userData", JSON.stringify(userData));
+
+        displayUserData();
+    }
+
+    function deleteUser(index) {
+        const userData = JSON.parse(localStorage.getItem("userData")) || [];
+        userData.splice(index, 1);
+
+        localStorage.setItem("userData", JSON.stringify(userData));
+
+        displayUserData();
+    }
+
+    displayUserData();
+</script>
+</body>
+</html>

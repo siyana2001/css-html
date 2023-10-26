@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #para1 {
+            height: 200px;
+            width: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    <form name="form1">
+        Enter Name: <input type="text" name="name">
+        <input type="button" onclick="printValue()" value="print value">
+    </form>
+
+    <script>
+        function printValue() {
+            var name = document.form1.name.value;
+            alert("Welcome: " + name);
+        }
+    </script>
+    -->
+
+
+        <div id="para1"></div>
+
+    
+    <button type="button" onclick="replaceElement()">replace</button>
+    
+    <script>
+        function replaceElement() {
+            var para = document.getElementById("para1");
+            var para2 = document.createElement("div");
+            para2.style.width = "200px";
+            para2.style.height = "200px";
+            para2.style.backgroundColor = "green"; 
+            para.parentNode.replaceChild(para2, para); 
+        }
+    </script>
+</body>
+</html>

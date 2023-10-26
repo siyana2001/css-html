@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body{
+        background-color: violet;
+      }
+    </style>
+</head>
+<body>
+  <center>
+    <h1>EMPLOYEE SALARY PAY SLIP</h1>
+    <form name = "form1">
+        <table >
+            <tr>
+                <td>Name</td>
+                <td><input type = "text" name = "firstname" /></td>
+            </tr>
+            <tr>
+                <td>User ID</td>
+                <td><input type = "text" name = "userid" /></td>
+            </tr>
+            <tr>
+                <td>DESGINATION</td>
+                <td><input type = "text" name = "designation" /></td>
+            </tr>
+            <tr>
+                <td>DAYS OF WORKING</td>
+                <td><input type = "text" name = "da"></td>
+            </tr>
+            <tr>
+                <td> Pay</td>
+                <td><input type = "text" name = "bp"></td>
+            </tr>
+            <tr>
+                <td>
+                <input type = "button" name = "calculate" value = "Click Here To Calculate"onclick ="calc()"></td>
+
+            </tr>
+            <tr>
+                <td>ESI</td>
+                <td><input type = "text" name = "esi"/></td>
+            </tr>
+            <tr>
+                <td>PF</td>
+                <td><input type = "text" name = "pf"/></td>
+            </tr>
+        
+          
+               
+        </table>
+    </form>
+  </center>
+    <script>
+        function calc()
+        {
+            var bp,da,pf,esi,name,id,desg;
+            name = document.form1.firstname.value;
+            id = document.form1.userid.value;
+            desg = document.form1.designation.value;
+            da= document.form1.da.value;
+            bp = parseInt(document.form1.bp.value);
+    
+           
+            PF = (bp/da )*12 ;
+            esi = (bp /da)*12 ;
+            
+    
+           
+            document.form1.pf.value = PF;
+            document.form1.esi.value = esi;
+           
+        }
+    </script>
+</body>
+</html>

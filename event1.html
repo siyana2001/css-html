@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="msg()">click here</button>
+    <button type="button" onclick="getInput()">Get user input</button>
+    <script>
+        function msg(){
+            var mseg = "Hello Javascript";
+            alert(mseg);
+        }
+        mseg.addEventListener("click",msg);
+
+        function getInput(){
+            var userinput = prompt("Enter something:");
+            alert("you entered: " + userinput);
+        }
+        userinput.addEventListener("click", getInput);
+    </script>
+</body>
+</html>

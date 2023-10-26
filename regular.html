@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="userForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="username" name="name">
+        
+        <button type="submit">Submit</button>
+    </form>
+    <p id="errortext" style="color: red;"></p>
+
+    <script>
+        function validateForm(){
+            const username= document.getElementById("username")
+            const errortext=document.getElementById("errortext")
+
+            const regex=/^[a-zA-Z0-9_]{3,20}$/;
+            if(!regex.test(username)){
+                alert("Invalid username");
+            }
+            return false;
+            
+        }
+            
+        
+    </script>
+</body>
+</html>

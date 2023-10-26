@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+
+    <body>
+        <input type="number" id="intInput" placeholder="Enter the number">
+        <button onclick="getbtn()">submit</button>
+        <select id="selectbox" onchange="select1()"></select>
+      <div id="newone"></div>
+        
+        <script>
+            function getbtn() {
+                var input = document.getElementById("intInput").value;
+                var output = '<option>select option</option>';
+                
+                for (var i = 0; i <= input; i++) {
+                    output += '<option value="' + i + '">' + i + '</option>';
+                }
+                
+                document.getElementById("selectbox").innerHTML = output;
+                
+            }
+            
+            function select1() {
+                var input2 = document.getElementById("selectbox").value;
+               
+                var formContent = '';
+                
+                for (var i = 1; i <=input2; i++) {
+                   formContent +=`
+                    <form>
+                        
+                        <input type="text" id="username${i}" name="username${i}" placeholder="user name"><br><br>
+                        
+                    </form>
+                    `;
+                   
+                }
+                
+                document.getElementById("newone").innerHTML = formContent;
+            }
+        </script>
+    </body>
+
+    
+
+</body>
+</html>

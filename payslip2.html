@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+        .container {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Salary Pay Slip Calculator</h2>
+        <form id="paySlipForm">
+            <div class="form-group">
+                <label for="basicSalary">Basic Salary (per month):</label>
+                <input type="number" class="form-control" id="basicSalary" required>
+            </div>
+            <div class="form-group">
+                <label for="hra">House Rent Allowance (HRA):</label>
+                <input type="number" class="form-control" id="hra" required>
+            </div>
+            <div class="form-group">
+                <label for="pfRate">Provident Fund (PF) Deduction Rate (%):</label>
+                <input type="number" class="form-control" id="pfRate" required>
+            </div>
+            <div class="form-group">
+                <label for="esiRate">Employee State Insurance (ESI) Deduction Rate (%):</label>
+                <input type="number" class="form-control" id="esiRate" required>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="calculatePaySlip()">Calculate Pay Slip</button>
+        </form>
+        <hr>
+        <h4>Pay Slip</h4>
+        <p>Basic Salary: <span id="displayBasicSalary"></span></p>
+        <p>HRA: <span id="displayHRA"></span></p>
+        <p>PF Deduction: <span id="displayPFDeduction"></span></p>
+        <p>ESI Deduction: <span id="displayESIDeduction"></span></p>
+        <p>Net Salary: <span id="displayNetSalary"></span></p>
+    </div>
+
+    <script>
+        function calculatePaySlip() {
+            var basicSalary = parseFloat(document.getElementById("basicSalary").value);
+            var hra = parseFloat(document.getElementById("hra").value);
+            var pfRate = parseFloat(document.getElementById("pfRate").value);
+            var esiRate = parseFloat(document.getElementById("esiRate").value);
+
+            var pfDeduction = (basicSalary * pfRate) / 100;
+            var esiDeduction = (basicSalary * esiRate) / 100;
+            var netSalary = basicSalary + hra - pfDeduction - esiDeduction;
+
+            document.getElementById("displayBasicSalary").textContent = basicSalary;
+            document.getElementById("displayHRA").textContent = hra;
+            document.getElementById("displayPFDeduction").textContent = pfDeduction;
+            document.getElementById("displayESIDeduction").textContent = esiDeduction;
+            document.getElementById("displayNetSalary").textContent = netSalary;
+        }
+    </script>
+</body>
+</html>

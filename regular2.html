@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="passwordForm">
+        <label for="password">User password:</label>
+        <input type="password" id="password" name="password">
+        <button type="button" onclick="validateUserPassword()">Validate</button>
+        <p id="validationResult"></p>
+    </form>
+    <script>
+        function validateUserPassword() {
+            const passwordInput = document.getElementById("password");
+            const password = passwordInput.value;
+
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@&*$%])[a-zA-Z\d@$%!&*]*$/;
+
+            if (regex.test(password)) {
+                document.getElementById("validationResult").textContent = "User password is valid.";
+            } else {
+                document.getElementById("validationResult").textContent = "User password is invalid.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Examples</title>
+</head>
+<body>
+    <input type="text" id="userInput">
+    <button id="displayButton">Click</button>
+
+    <script>
+        document.addEventListener("click", function() {
+            var displayButton = document.getElementById("displayButton");
+            displayButton.addEventListener("click", displayUserInput);
+        });
+
+        function displayUserInput() {
+            var userInput = document.getElementById("userInput").value;
+            alert("User input: " + userInput);
+        }
+    </script>
+</body>
+</html>

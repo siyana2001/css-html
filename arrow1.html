@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function person(){
+    this.name='siyana',
+    this.age=22,
+
+    this.naming=function(){
+        console.log(this.age);
+         
+        let innerFunc=() => console.log(this.age);
+        innerFunc();
+    }
+
+}
+const y=new person();
+y.naming()
+
+
+    </script>
+</body>
+</html>
